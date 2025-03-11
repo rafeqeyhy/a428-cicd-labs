@@ -22,14 +22,9 @@
                 input message: 'Lanjutkan ke tahap Deploy? (Klik "Proceed" untuk mengakhiri)'
             }
             }
-            stage('Sleep') {
-            steps {
-                sleep(60)
-            }
-            }
             stage('Deploy') {
             steps {
-                sh './jenkins/scripts/kill.sh'
+                sleep(60)
             }
             }
         }

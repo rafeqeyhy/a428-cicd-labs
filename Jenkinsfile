@@ -16,10 +16,19 @@
                 sh './jenkins/scripts/test.sh'
             }
             }
-            stage('Deploy') {
+            stage('Manual Approval') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
                 input message: 'Lanjutkan ke tahap Deploy? (Klik "Proceed" untuk mengakhiri)'
+            }
+            }
+            stage('Sleep') {
+            steps {
+                sleep(60)
+            }
+            }
+            stage('Deploy') {
+            steps {
                 sh './jenkins/scripts/kill.sh'
             }
             }
